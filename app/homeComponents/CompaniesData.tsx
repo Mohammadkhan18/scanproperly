@@ -87,8 +87,10 @@ const CompaniesData = () => {
     <div className="container mx-auto px-14 py-[24px] space-y-5">
       {/* ============ filters =========== */}
       <div className="flex items-center justify-between">
-        {title?.map((data: { title: string }) => (
-          <div className="px-[10px] py-[6px] bg-white">{data?.title}</div>
+        {title?.map((data: { title: string }, index: number) => (
+          <div key={index} className="px-[10px] py-[6px] bg-white">
+            {data?.title}
+          </div>
         ))}
       </div>
 
@@ -99,8 +101,16 @@ const CompaniesData = () => {
       <div className="flex  gap-5 ">
         <div className="bg-white rounded-[8px] p-4">
           {accordianData?.map(
-            (data: { title: string; listData: { text: string }[] }) => (
-              <Accordion type="single" collapsible>
+            (
+              data: { title: string; listData: { text: string }[] },
+              index: number
+            ) => (
+              <Accordion
+                key={index}
+                type="single"
+                collapsible
+                defaultChecked={true}
+              >
                 <AccordionItem value="item-1">
                   <AccordionTrigger>{data?.title}</AccordionTrigger>
                   {data?.listData?.map((list: { text: string }) => (

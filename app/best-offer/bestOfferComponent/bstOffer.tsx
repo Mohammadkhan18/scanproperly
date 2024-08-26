@@ -1,7 +1,7 @@
 import OfferDropdown from "@/app/components/shared/OfferDropdown";
 import React from "react";
 
-const OfferCards = () => {
+const BstOffer = () => {
   return (
     <div className="container mx-auto  px-14 py-[24px] my-7">
       <div className="bg-white p-[24px] space-y-5">
@@ -13,4 +13,4 @@ const OfferCards = () => {
   );
 };
 
-export default OfferCards;
+export default BstOffer;

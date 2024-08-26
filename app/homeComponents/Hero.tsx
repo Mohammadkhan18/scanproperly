@@ -40,8 +40,8 @@ const heroData = [
 
 const Hero = () => {
   return (
-    <div className="container mx-auto px-14">
-      <div className=" px-[40px] py-[24px] my-5 flex gap-24 justify-between rounded-[20px] bg-gradient">
+    <div className="container mx-auto px-14 py-[24px]">
+      <div className="px-[40px] py-[24px] flex gap-24 justify-between rounded-[20px] bg-gradient">
         <div className="flex flex-col gap-7">
           <h1 className="text-[40px] font-[600] leading-[50px] text-white">
             What plan do you want to compare?

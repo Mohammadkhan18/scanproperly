@@ -1,6 +1,5 @@
 "use client";
 
-import dropImage from "@/public/dropAvator.svg";
 import Image from "next/image";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 // import image from "@/public/bestOfferImages/percent.svg";
@@ -11,6 +10,7 @@ import { FaAngleDown } from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
 
 import copy from "@/public/copy.svg";
+import NumberBadge from "./NumberBadge";
 
 const OfferDropdown = () => {
   const [isOpen, setIsOpen] = useState<Boolean>(false);
@@ -35,29 +35,17 @@ const OfferDropdown = () => {
   }, [dropdownRef]);
 
   return (
-    <div className="relative">
-      <div className=" flex items-center justify-between bg-grayBackground px-6 py-3 z-[1]">
+    <div className="relative  ">
+      <div className=" flex items-center justify-between bg-grayBackground p-3 z-[1]">
         <div className=" flex gap-5 items-center">
-          <div className="relative ">
-            <Image
-              src={dropImage}
-              alt="Pre avator"
-              quality={100}
-              height={100}
-              width={100}
-            />
-
-            <p className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-[1]">
-              15
-            </p>
-          </div>
+          <NumberBadge />
           <div className="h-[112px] w-[112px] rounded-full">
             <Avatar className="">
-              <AvatarImage
+              {/* <AvatarImage
                 src={imageUrl}
                 alt="Best offer"
                 className="bg-[#04070E]"
-              />
+              /> */}
               <AvatarFallback className="bg-[#04070E] text-white">
                 BO
               </AvatarFallback>
