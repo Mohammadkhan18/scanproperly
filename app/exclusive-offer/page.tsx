@@ -1,5 +1,7 @@
 import React from "react";
 import SharedHero from "@/app/components/shared/SharedHero";
+import ExOffer from "./components/ExOffer";
+import HowDoseItWork from "@/app/components/shared/HowDoseItWork";
 
 const heroData = {
   title: "Best Sellers",
@@ -9,7 +11,11 @@ const heroData = {
 const ExclusiveOffer = () => {
   return (
     <div>
-      <SharedHero data={heroData} />
+      <div className="container mx-auto  px-14 py-[24px]">
+        <SharedHero data={heroData} isGradeint={true} />
+      </div>
+      <ExOffer />
+      <HowDoseItWork />
     </div>
   );
 };
