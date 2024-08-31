@@ -1,7 +1,5 @@
 import React from "react";
-import { Input } from "@/app/components/ui/input";
-import { FiSearch } from "react-icons/fi";
-import { IoOptionsOutline } from "react-icons/io5";
+
 import {
   Accordion,
   AccordionContent,
@@ -9,8 +7,9 @@ import {
   AccordionTrigger,
 } from "@/app/components/ui/accordion";
 import CompanyCard from "@/app/components/shared/CompanyCard";
-import MultiRange from "@/app/components/ui/multiRange/multiRange";
 import SearchInput from "@/app/components/shared/SearchInput";
+import { Button } from "@/app/components/ui/button";
+import { IoOptionsOutline } from "react-icons/io5";
 
 const title = [
   { title: "Exclusive offers" },
@@ -74,10 +73,12 @@ export const Search = () => {
   return (
     <div className="flex gap-10">
       <SearchInput />
-      <div className="cursor-pointer flex items-center rounded-[10px] justify-center gap-2 px-[24px]  py-[16px] bg-primary text-white text-[16px] font-[600] leading-[20px]">
+
+      <Button className="px-[16px]  py-[20px] lg:px-[24px]  lg:py-[30px] flex items-center rounded-[10px] justify-center gap-2 text-white text-[16px] font-[600] leading-[20px]">
+        {" "}
         <IoOptionsOutline className="text-[30px]" />
-        <p>More options</p>
-      </div>
+        <p className="hidden md:block">More options</p>
+      </Button>
     </div>
   );
 };
@@ -86,7 +87,7 @@ const CompaniesData = () => {
   return (
     <div className="container mx-auto px-14 py-[24px] space-y-5">
       {/* ============ filters =========== */}
-      <div className="flex items-center justify-between">
+      <div className=" items-center justify-between hidden md:flex">
         {title?.map((data: { title: string }, index: number) => (
           <div key={index} className="px-[10px] py-[6px] bg-white">
             {data?.title}
@@ -99,7 +100,7 @@ const CompaniesData = () => {
 
       {/* ========================== */}
       <div className="flex  gap-5 ">
-        <div className="bg-white rounded-[8px] p-4">
+        <div className="bg-white rounded-[8px] p-4 hidden md:block">
           {accordianData?.map(
             (
               data: { title: string; listData: { text: string }[] },
