@@ -19,13 +19,13 @@ const Review = ({ percent }: { percent?: "fill" | null }) => {
           </p>
         </div>
       </div>
-      <div className="flex items-center gap-1">
+      <div className="flex items-center gap-[2px] lg:gap-1">
         <div className="flex ">
-          <FaStar className="text-primary text-18px]" />
-          <FaStar className="text-primary text-18px]" />
-          <FaStar className="text-primary text-18px]" />
-          <FaStar className="text-primary text-18px]" />
-          <FaStar className="text-primary text-18px]" />
+          <FaStar className="text-primary text-[14px] lg:text-[18px]" />
+          <FaStar className="text-primary text-[14px] lg:text-[18px]" />
+          <FaStar className="text-primary text-[14px] lg:text-[18px]" />
+          <FaStar className="text-primary text-[14px] lg:text-[18px]" />
+          <FaStar className="text-primary text-[14px] lg:text-[18px]" />
         </div>
         <p
           className={`text-[10.23px] font-[600] leading-[12px] text-primary mb-[-5px]`}

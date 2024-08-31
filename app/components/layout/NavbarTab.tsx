@@ -15,7 +15,7 @@ const navigation = [
 
 const NavbarTab = () => {
   const route = usePathname();
-  console.log("route", route);
+
   return (
     <div className="w-full bg-white rounded-lg px-4 py-2">
       <div className="flex list-none items-center justify-between">

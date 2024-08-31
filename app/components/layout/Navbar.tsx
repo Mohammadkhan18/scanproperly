@@ -1,7 +1,6 @@
 import React from "react";
-import logo from "../../../public/logo.svg";
-import start from "../../../public/star.svg";
 import Image from "next/image";
+
 import { Button } from "@/app/components/ui/button";
 import twitterIcon from "../../../public/twitter.svg";
 import intagramIcon from "../../../public/intagram.svg";
@@ -9,6 +8,9 @@ import youtubeIcon from "../../../public/youtube.svg";
 import eng from "../../../public/eng-flag.svg";
 import hameburger from "../../../public/hameburger.svg";
 import NavbarTab from "./NavbarTab";
+import logo from "../../../public/logo.svg";
+import start from "../../../public/star.svg";
+
 
 const Navbar = () => {
   return (
