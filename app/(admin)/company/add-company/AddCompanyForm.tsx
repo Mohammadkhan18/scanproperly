@@ -26,8 +26,9 @@ import { Button } from "@/app/components/ui/button";
 
 import { useAddCompany } from "../../api/api-queries";
 
-import { Schema, z } from "zod";
+import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import ImageUpload from "@/app/components/shared/ImageUpload";
 const AddCompanyFrom = () => {
   const schema = z.object({
     name: z.string().nonempty("This field is required"),
@@ -116,14 +117,10 @@ const AddCompanyFrom = () => {
     resolver: zodResolver(schema),
   });
 
-  const handleSubmit = async (values: AddCompanyType) => {
-    console.log("values", values);
-    try {
-      const response = await useAddCompany(values);
-      console.log("values", response);
-    } catch (error) {
-      console.log("values", error);
-    }
+  const { mutate } = useAddCompany();
+
+  const handleSubmit = async (values: any) => {
+    mutate(values);
   };
 
   return (
@@ -737,13 +734,13 @@ const AddCompanyFrom = () => {
               <FormItem>
                 <FormLabel>Logo</FormLabel>
                 <FormControl>
-                  <Input placeholder="Logo" type="file" {...field} />
+                  <ImageUpload {...field} control={form.control} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-          <div className="flex justify-end">
+          <div className="flex justify-end mt-10">
             {" "}
             <Button type="submit" className="">
               Add Company

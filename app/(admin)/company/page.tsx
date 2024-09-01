@@ -13,7 +13,7 @@ import {
   TableRow,
 } from "@/app/components/ui/table";
 import { useRouter } from "next/navigation";
-import { useFetchCompany } from "../api/api-queries";
+import { useDeleteCompany, useFetchCompany } from "../api/api-queries";
 
 import { Button } from "@/app/components/ui/button";
 import {
@@ -34,6 +34,12 @@ const ActionDropDown = ({
   id: string;
 }) => {
   const router = useRouter();
+
+  const { mutate: deleteCompany } = useDeleteCompany();
+
+  const handleDelete = () => {
+    deleteCompany(id);
+  };
   return (
     <DropdownMenu>
       {children}
@@ -48,7 +54,10 @@ const ActionDropDown = ({
           <span>Edit</span>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className="space-x-3 cursor-pointer">
+        <DropdownMenuItem
+          className="space-x-3 cursor-pointer"
+          onClick={handleDelete}
+        >
           <MdOutlineDelete className="text-[20px] text-red-500" />
           <span>Delete</span>
         </DropdownMenuItem>

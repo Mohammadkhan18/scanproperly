@@ -1,4 +1,5 @@
 export type AddCompanyType = {
+  id?: string;
   name: string;
   url: string;
   ceo: string;
