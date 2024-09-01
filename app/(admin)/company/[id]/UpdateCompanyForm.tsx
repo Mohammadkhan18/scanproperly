@@ -24,15 +24,17 @@ import { countryListName } from "@/app/constant/countriesData";
 import MultiSelect from "@/app/components/ui/multi-select";
 import { Button } from "@/app/components/ui/button";
 
-import { useAddCompany, useFetchSingleCompany } from "../../api/api-queries";
+import { useUpdateCompany } from "../../api/api-queries";
 
 import { Schema, z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useParams } from "next/navigation";
-const UpdateCompanyFrom = async () => {
-  const { id }: { id: any } = useParams();
-
-  // const currentCompany = await useFetchSingleCompany(id);
+const UpdateCompanyFrom = async ({
+  currentCompany,
+}: {
+  currentCompany: any;
+}) => {
+  const params: any = useParams();
 
   const schema = z.object({
     name: z.string().nonempty("This field is required"),
@@ -78,62 +80,59 @@ const UpdateCompanyFrom = async () => {
 
   const form = useForm<AddCompanyType>({
     defaultValues: {
-      name: "",
-      url: "",
-      ceo: "",
-      establishedYear: "",
-      country: "",
-      broker: "",
-      platformUse: "",
-      trustPilotReview: "",
-      instrument: "",
-      googleReview: "",
-      paymentMethod: "",
-      payoutMethod: "",
-      minimumPayoutCondition: "",
-      leverage: "",
-      commission: "",
-      evaluationType: "",
-      accountSize: "",
-      actualPrice: 0,
-      demoAccount: "",
-      discountedPrice: "",
-      profitSplit: "",
-      profitTarget: "",
-      drawdownResetType: "",
-      dailyDrawdown: 0,
-      maxDrawdown: 0,
-      profitToDrawdownRatio: "",
+      name: currentCompany?.name ? currentCompany?.name : "",
+      url: currentCompany?.url ? currentCompany?.url : "",
+      ceo: currentCompany?.ceo ? currentCompany?.ceo : "",
+      establishedYear: currentCompany?.establishedYear
+        ? currentCompany?.establishedYear
+        : "",
+      country: currentCompany?.country,
+      broker: currentCompany?.broker,
+      platformUse: currentCompany?.platformUse,
+      trustPilotReview: currentCompany?.trustPilotReview,
+      instrument: currentCompany?.instrument,
+      googleReview: currentCompany?.googleReview,
+      paymentMethod: currentCompany?.paymentMethod,
+      payoutMethod: currentCompany?.payoutMethod,
+      minimumPayoutCondition: currentCompany?.minimumPayoutCondition,
+      leverage: currentCompany?.leverage,
+      commission: currentCompany?.commission,
+      evaluationType: currentCompany?.evaluationType,
+      accountSize: currentCompany?.accountSize,
+      actualPrice: currentCompany?.actualPrice,
+      demoAccount: currentCompany?.demoAccount,
+      discountedPrice: currentCompany?.discountedPrice,
+      profitSplit: currentCompany?.profitSplit,
+      profitTarget: currentCompany?.profitTarget,
+      drawdownResetType: currentCompany?.drawdownResetType,
+      dailyDrawdown: currentCompany?.dailyDrawdown,
+      maxDrawdown: currentCompany?.maxDrawdown,
+      profitToDrawdownRatio: currentCompany?.profitToDrawdownRatio,
       countriesServing: [],
       countriesNotServing: [],
-      paymentSettlementDays: "",
-      timeLimit: "",
-      minimumTradingDays: 0,
-      newsTrading: "false",
-      weekendHolding: "false",
-      expertAdvice: "false",
-      highFrequencyTrades: "false",
-      tradeCopier: "false",
-      firstPayout: "",
-      subsequentPayouts: "",
+      paymentSettlementDays: currentCompany?.paymentSettlementDays,
+      timeLimit: currentCompany?.timeLimit,
+      minimumTradingDays: currentCompany?.minimumTradingDays,
+      newsTrading: currentCompany?.newsTrading,
+      weekendHolding: currentCompany?.weekendHolding,
+      expertAdvice: currentCompany?.expertAdvice,
+      highFrequencyTrades: currentCompany?.highFrequencyTrades,
+      tradeCopier: currentCompany?.tradeCopier,
+      firstPayout: currentCompany?.firstPayout,
+      subsequentPayouts: currentCompany?.subsequentPayouts,
       logo: "",
     },
     resolver: zodResolver(schema),
   });
 
+  const { mutate } = useUpdateCompany();
+
   const handleSubmit = async (values: AddCompanyType) => {
-    console.log("values", values);
-    try {
-      const response = await useAddCompany(values);
-      console.log("values", response);
-    } catch (error) {
-      console.log("values", error);
-    }
+    mutate({ ...values, id: params.id });
   };
 
   return (
     <div>
-      <div></div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(handleSubmit)}>
           <div className="grid grid-cols-3 gap-5">
@@ -749,7 +748,6 @@ const UpdateCompanyFrom = async () => {
             )}
           />
           <div className="flex justify-end">
-            {" "}
             <Button type="submit" className="">
               Add Company
             </Button>
