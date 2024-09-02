@@ -38,5 +38,5 @@ export type AddCompanyType = {
   tradeCopier: string;
   firstPayout: string;
   subsequentPayouts: string;
-  logo: string;
+  logo: any;
 };

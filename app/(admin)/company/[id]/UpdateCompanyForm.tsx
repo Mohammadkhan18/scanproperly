@@ -75,7 +75,7 @@ const UpdateCompanyFrom = async ({
     tradeCopier: z.string().nonempty("This field is required"),
     firstPayout: z.string().nonempty("This field is required"),
     subsequentPayouts: z.string().nonempty("This field is required"),
-    logo: z.string().nonempty("This field is required"),
+    logo: z.any(),
   });
 
   const form = useForm<AddCompanyType>({
