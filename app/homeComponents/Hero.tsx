@@ -42,7 +42,7 @@ const Hero = () => {
         </div>
 
         {/* ======================= hero right ======================= */}
-        <div className="flex-grow lg:min-w-[320px] relative hidden md:block">
+        <div className="flex-grow lg:min-w-[320px] relative hidden lg:block">
           <div className="flex w-full items-center justify-end gap-[16px]">
             <h3 className="text-[23px] font-[700] leading-[30px] text-white">
               Apply discount

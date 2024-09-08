@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 
 import {
@@ -10,6 +12,8 @@ import CompanyCard from "@/app/components/shared/CompanyCard";
 import SearchInput from "@/app/components/shared/SearchInput";
 import { Button } from "@/app/components/ui/button";
 import { IoOptionsOutline } from "react-icons/io5";
+import { useFetchCompany } from "../(admin)/api/api-queries";
+import Loader from "../components/shared/Loader";
 
 const title = [
   { title: "Exclusive offers" },
@@ -84,10 +88,12 @@ export const Search = () => {
 };
 
 const CompaniesData = () => {
+  const { data, isLoading } = useFetchCompany();
+
   return (
     <div className="container mx-auto px-14 py-[24px] space-y-5">
       {/* ============ filters =========== */}
-      <div className=" items-center justify-between hidden md:flex">
+      <div className=" items-center justify-between hidden mc:flex">
         {title?.map((data: { title: string }, index: number) => (
           <div key={index} className="px-[10px] py-[6px] bg-white">
             {data?.title}
@@ -100,7 +106,7 @@ const CompaniesData = () => {
 
       {/* ========================== */}
       <div className="flex  gap-5 ">
-        <div className="bg-white rounded-[8px] p-4 hidden md:block">
+        <div className="bg-white rounded-[8px] p-4 hidden lg:block">
           {accordianData?.map(
             (
               data: { title: string; listData: { text: string }[] },
@@ -124,11 +130,17 @@ const CompaniesData = () => {
 
           {/* <MultiRange /> */}
         </div>
-        <div className="flex-1 bg-white rounded-[8px]">
-          {Array.from({ length: 5 }).map((_, index) => (
-            <CompanyCard key={index} />
-          ))}
-        </div>
+        {isLoading ? (
+          <div className="w-full h-[40vh] flex items-center justify-center">
+            <Loader />
+          </div>
+        ) : (
+          <div className="flex-1 bg-white rounded-[8px]">
+            {data?.data?.data?.map((company: any, index: number) => (
+              <CompanyCard key={company?.id} companyData={company} />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

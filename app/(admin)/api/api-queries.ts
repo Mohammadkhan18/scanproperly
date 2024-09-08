@@ -14,7 +14,6 @@ import {
 } from "./apiServices";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useParams, useRouter } from "next/navigation";
-import { AddBlogType } from "@/app/@types/blogTypes";
 
 export const useAddCompany = () => {
   const queryClient = useQueryClient();
@@ -56,11 +55,11 @@ export const useFetchCompany = () => {
   });
 };
 
-export const useFetchSingleCompany = () => {
-  const params = useParams();
+export const useFetchSingleCompany = (id: string | string[]) => {
   return useQuery({
-    queryKey: [`${params.id}`, "data"],
-    queryFn: () => getSingleComapny(params.id),
+    queryKey: [`${id}`, "company"],
+    queryFn: () => getSingleComapny(id),
+    enabled: !!id,
     refetchOnMount: false,
     refetchOnWindowFocus: false,
     staleTime: Infinity,
@@ -89,14 +88,13 @@ export const useFetchBlog = () => {
   });
 };
 
-export const useFetchSingleBlog = () => {
-  const params = useParams();
+export const useFetchingSingleBlog = (id: string | string[]) => {
   return useQuery({
-    queryKey: [`${params.id}`, "object"],
+    queryKey: [`${id}`, "blog"],
     queryFn: () => {
-      return fetchSingleBlog(params.id);
+      return fetchSingleBlog(id);
     },
-    enabled: !!params.id,
+    enabled: !!id,
     refetchOnMount: false,
     refetchOnWindowFocus: false,
     staleTime: Infinity,
@@ -126,7 +124,9 @@ export const useUpdateBlog = () => {
       queryClient.invalidateQueries({
         queryKey: ["blog", "list"],
       });
-      router.push("/blog");
+      setTimeout(() => {
+        router.push("/blog");
+      }, 500);
     },
   });
 };

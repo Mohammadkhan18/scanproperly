@@ -1,16 +1,20 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import UpdateBlogsFrom from "./UpdateBlog";
-import { useFetchSingleBlog } from "../../api/api-queries";
+
 import Loader from "@/app/components/shared/Loader";
 import { Button } from "@/app/components/ui/button";
 import { BsArrowLeft } from "react-icons/bs";
-import { useRouter } from "next/navigation";
+import { useFetchingSingleBlog } from "../../api/api-queries";
+import { useQuery } from "@tanstack/react-query";
+import { useParams, useRouter } from "next/navigation";
 
 const UpdateBlog = () => {
+  const params = useParams();
   const router = useRouter();
-  const { data, isLoading } = useFetchSingleBlog();
+
+  const { data, isLoading } = useFetchingSingleBlog(params?.id);
 
   return (
     <div className="container mx-auto px-14 py-[24px]">
@@ -24,7 +28,13 @@ const UpdateBlog = () => {
           <BsArrowLeft className="text-[24px]" />
         </Button>
       </div>
-      {isLoading ? <Loader /> : <UpdateBlogsFrom blogData={data} />}
+      {isLoading ? (
+        <div className="h-[60vh] flex items-center justify-center">
+          <Loader />
+        </div>
+      ) : (
+        <UpdateBlogsFrom blogData={data} />
+      )}
     </div>
   );
 };

@@ -2,12 +2,21 @@ import { Button } from "@/app/components/ui/button";
 import React from "react";
 import { FaStar } from "react-icons/fa";
 
-const Review = ({ percent }: { percent?: "fill" | null }) => {
+const Review = ({
+  percent,
+  data,
+}: {
+  percent?: "fill" | null;
+  data: {
+    review: string;
+    rating: string;
+  };
+}) => {
   return (
     <div className="flex flex-col gap-1">
       <div className="flex items-center gap-2">
         <p className="text-[12px] font-[600] leading-[14.52px]">
-          Google Rating:
+          {data?.review}:
         </p>
         <div
           className={`border-2 border-primary rounded-md px-1 text-primary ${
@@ -15,17 +24,17 @@ const Review = ({ percent }: { percent?: "fill" | null }) => {
           }`}
         >
           <p className={`text-[10.93px] font-[600] leading-[13.23px]   `}>
-            4.8/5
+            {data?.rating}/5
           </p>
         </div>
       </div>
       <div className="flex items-center gap-[2px] lg:gap-1">
         <div className="flex ">
-          <FaStar className="text-primary text-[14px] lg:text-[18px]" />
-          <FaStar className="text-primary text-[14px] lg:text-[18px]" />
-          <FaStar className="text-primary text-[14px] lg:text-[18px]" />
-          <FaStar className="text-primary text-[14px] lg:text-[18px]" />
-          <FaStar className="text-primary text-[14px] lg:text-[18px]" />
+          {Array.from({ length: Math.round(Number(data?.rating)) })?.map(
+            (start) => (
+              <FaStar className="text-primary text-[14px] lg:text-[18px]" />
+            )
+          )}
         </div>
         <p
           className={`text-[10.23px] font-[600] leading-[12px] text-primary mb-[-5px]`}

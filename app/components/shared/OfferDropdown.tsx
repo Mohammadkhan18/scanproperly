@@ -39,7 +39,7 @@ const OfferDropdown = () => {
       <div className=" flex items-center justify-between bg-grayBackground p-3 z-[1]">
         <div className=" flex gap-5 items-center">
           <NumberBadge />
-          <div className="h-[112px] w-[112px] rounded-full">
+          <div className="h-[px] w-[80px]  md:h-[112px] md:w-[112px] rounded-full">
             <Avatar className="">
               {/* <AvatarImage
                 src={imageUrl}
@@ -52,20 +52,28 @@ const OfferDropdown = () => {
             </Avatar>
           </div>
           <div>
-            <h3 className="font-[600] text-[32px] leading-[50px]">The 5%ers</h3>
+            <h3 className="font-[600] text-[24px] leading-[40px]  md:font-[600] md:text-[32px] md:leading-[50px]">
+              The 5%ers
+            </h3>
             <div className="flex gap-10">
-              <Review percent={"fill"} />
-              <Review percent={"fill"} />
+              <Review
+                percent={"fill"}
+                data={{ review: "Goolge Review", rating: "2" }}
+              />
+              <Review
+                percent={"fill"}
+                data={{ review: "Trust Polit Review", rating: "5" }}
+              />
             </div>
           </div>
         </div>
         <div ref={dropdownRef}>
           <div
-            className="flex items-center  bg-primary rounded-md text-white pl-2 px-2"
+            className="flex items-center  bg-primary rounded-md text-white md:pl-2 md:px-2"
             onClick={handleToggleModal}
           >
             <FaAngleDown className="text-[20px]" />{" "}
-            <Button className="px-1 py-6">Select Best Offer</Button>
+            <Button className="px-1 py-4 md:py-6">Select Best Offer</Button>
           </div>
         </div>
       </div>
@@ -78,12 +86,12 @@ const OfferDropdown = () => {
             {[1, 2]?.map((data: any) => (
               <div className="flex items-center h-full justify-between">
                 <div>
-                  <h3 className="font-[600] text-[24px] leading-[50px]">
+                  <h3 className="font-[600] text-[20px] leading-[40px] md:font-[600] md:text-[24px] md:leading-[50px]">
                     Ability Challenge
                   </h3>
                 </div>
                 <div className="flex-1 flex items-center justify-end gap-20">
-                  <h3 className="font-[600] text-[32px] leading-[50px]">
+                  <h3 className="font-[600] text-[24px] leading-[40px] md:font-[600] md:text-[32px] md:leading-[50px]">
                     15% off
                   </h3>
                   <div className="flex items-center gap-3 text-white">
