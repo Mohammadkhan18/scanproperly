@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 
 import {
   Form,
@@ -29,7 +29,46 @@ import { useAddCompany } from "../../api/api-queries";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import ImageUpload from "@/app/components/shared/ImageUpload";
+
+const platformUseArray = [
+  { label: "MT4", value: "MT4" },
+  { label: "MT5", value: "MT5" },
+  { label: "CTrader", value: "CTrader" },
+  { label: "DXTrade", value: "DXTrade" },
+  { label: "TradeLocker", value: "TradeLocker" },
+  { label: "Match Trader", value: "Match Trader" },
+  { label: "Think Trader", value: "Think Trader" },
+  { label: "Other Platforms", value: "Other Platforms" },
+  { label: " Propiertary Platforms", value: " Propiertary Platforms" },
+];
+
+const evalutionTypeOption = [
+  { label: "Step 1", value: "Step 1" },
+  { label: "Step 2", value: "Step 2" },
+  { label: "Step 3", value: "Step 3" },
+  { label: "Instant or Funded", value: "Instant or Funded" },
+];
+
+const evalutionTypeValueArray = [
+  { label: "5K", value: "5K" },
+  { label: "10K", value: "10K" },
+  { label: "15K", value: "15K" },
+  { label: "20K", value: "20K" },
+  { label: "25K", value: "25K" },
+  { label: "30K", value: "30K" },
+  { label: "40K", value: "40K" },
+  { label: "50K", value: "50K" },
+  { label: "60K", value: "60K" },
+  { label: "90K", value: "90K" },
+  { label: "100K", value: "100K" },
+  { label: "120K", value: "120K" },
+  { label: "240K", value: "240K" },
+  { label: "more", value: "more" },
+];
+
 const AddCompanyFrom = () => {
+  const [selectedEvalutionTypes, setSelectedEvalutionTypes] = useState<any>([]);
+
   const schema = z.object({
     name: z.string().nonempty("This field is required"),
     url: z.string().nonempty("This field is required").url("Enter a valid url"),
@@ -37,7 +76,7 @@ const AddCompanyFrom = () => {
     establishedYear: z.string().nonempty("This field is required"),
     country: z.string().nonempty("This field is required"),
     broker: z.string().nonempty("This field is required"),
-    platformUse: z.string().nonempty("This field is required"),
+    platformUse: z.array(z.string().nonempty("This field is required")),
     trustPilotReview: z.string().nonempty("This field is required"),
     instrument: z.string().nonempty("This field is required"),
     googleReview: z.string().nonempty("This field is required"),
@@ -46,7 +85,11 @@ const AddCompanyFrom = () => {
     minimumPayoutCondition: z.string().nonempty("This field is required"),
     leverage: z.string().nonempty("This field is required"),
     commission: z.string().nonempty("This field is required"),
-    evaluationType: z.string().nonempty("This field is required"),
+    evaluationType: z.array(z.string().nonempty("This field is required")),
+    step1: z.array(z.string()),
+    step2: z.array(z.string()),
+    step3: z.array(z.string()),
+    instantOrFunded: z.array(z.string()),
     accountSize: z.string().nonempty("this fiels is requried"),
     actualPrice: z.string().nonempty("this fiels is requried"),
     demoAccount: z.string().nonempty("This field is required"),
@@ -80,7 +123,7 @@ const AddCompanyFrom = () => {
       establishedYear: "",
       country: "",
       broker: "",
-      platformUse: "",
+      platformUse: [],
       trustPilotReview: "",
       instrument: "",
       googleReview: "",
@@ -89,7 +132,11 @@ const AddCompanyFrom = () => {
       minimumPayoutCondition: "",
       leverage: "",
       commission: "",
-      evaluationType: "",
+      evaluationType: [],
+      step1: [],
+      step2: [],
+      step3: [],
+      instantOrFunded: [],
       accountSize: "",
       actualPrice: 0,
       demoAccount: "",
@@ -120,7 +167,8 @@ const AddCompanyFrom = () => {
   const { mutate } = useAddCompany();
 
   const handleSubmit = async (values: any) => {
-    mutate(values);
+    console.log("values", values);
+    // mutate(values);
   };
 
   return (
@@ -223,16 +271,20 @@ const AddCompanyFrom = () => {
             <FormField
               control={form.control}
               name="platformUse"
-              render={({ field }) => (
+              render={({ field: { value, onChange, ...rest } }) => (
                 <FormItem>
                   <FormLabel>Platform Use</FormLabel>
                   <FormControl>
-                    <Input placeholder="Platform Use" {...field} />
+                    <MultiSelect
+                      options={platformUseArray}
+                      selectedValues={value}
+                      onSelectedValuesChange={onChange}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
-            />
+            />{" "}
             <FormField
               control={form.control}
               name="trustPilotReview"
@@ -262,11 +314,25 @@ const AddCompanyFrom = () => {
             <FormField
               control={form.control}
               name="paymentMethod"
-              render={({ field }) => (
+              render={({ field: { onChange, value, ...rest } }) => (
                 <FormItem>
                   <FormLabel>Payment Method</FormLabel>
                   <FormControl>
-                    <Input placeholder="Payment Method" {...field} />
+                    <Select onValueChange={onChange} value={value}>
+                      <SelectTrigger className="w-full">
+                        <SelectValue placeholder="Payment Method" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Credit/Debit Card">
+                          Credit/Debit Card
+                        </SelectItem>
+                        <SelectItem value="Stripe">Stripe</SelectItem>
+                        <SelectItem value="Paypal">Paypal</SelectItem>
+                        <SelectItem value="Crypto">Crypto</SelectItem>
+                        <SelectItem value="Apple Pay">Apple Pay</SelectItem>
+                        <SelectItem value="Others">Others</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -275,11 +341,21 @@ const AddCompanyFrom = () => {
             <FormField
               control={form.control}
               name="payoutMethod"
-              render={({ field }) => (
+              render={({ field: { onChange, value, ...rest } }) => (
                 <FormItem>
                   <FormLabel>Payout Method</FormLabel>
                   <FormControl>
-                    <Input placeholder="Payout Method" {...field} />
+                    <Select onValueChange={onChange} value={value}>
+                      <SelectTrigger className="w-full">
+                        <SelectValue placeholder="Payout Method" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Rise (Bank Transfer)">
+                          Rise (Bank Transfer)
+                        </SelectItem>
+                        <SelectItem value="Crypto">Crypto</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -288,11 +364,30 @@ const AddCompanyFrom = () => {
             <FormField
               control={form.control}
               name="instrument"
-              render={({ field }) => (
+              render={({ field: { onChange, value, ...rest } }) => (
                 <FormItem>
                   <FormLabel>Instrument</FormLabel>
                   <FormControl>
-                    <Input placeholder="Instrument " {...field} />
+                    <Select onValueChange={onChange} value={value}>
+                      <SelectTrigger className="w-full">
+                        <SelectValue placeholder="Instrument" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Forex: USD/GBP">
+                          Forex: USD/GB
+                        </SelectItem>
+                        <SelectItem value="Metals: Steel, copper & others">
+                          Metals: Steel, copper & others
+                        </SelectItem>
+                        <SelectItem value="Indices: NAS10, S&P">
+                          Indices: NAS10, S&P
+                        </SelectItem>{" "}
+                        <SelectItem value="Crypto: BTC, ETH, BCH, SOL">
+                          Crypto: BTC, ETH, BCH, SOL
+                        </SelectItem>{" "}
+                        <SelectItem value="Commodities: ">Oil</SelectItem>{" "}
+                      </SelectContent>
+                    </Select>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -314,11 +409,31 @@ const AddCompanyFrom = () => {
             <FormField
               control={form.control}
               name="leverage"
-              render={({ field }) => (
+              render={({ field: { onChange, value, ...rest } }) => (
                 <FormItem>
-                  <FormLabel>Leverage </FormLabel>
+                  <FormLabel>Leverage</FormLabel>
                   <FormControl>
-                    <Input placeholder="Leverage" {...field} />
+                    <Select onValueChange={onChange} value={value}>
+                      <SelectTrigger className="w-full">
+                        <SelectValue placeholder="Leverage" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Forex - 1:100">
+                          Forex - 1:10
+                        </SelectItem>
+                        <SelectItem value="Metals - 1:33">
+                          Metals - 1:33
+                        </SelectItem>
+                        <SelectItem value="Indices - 1:25">
+                          Indices - 1:25
+                        </SelectItem>
+                        <SelectItem value="Crypto - 1:2">
+                          Crypto - 1:2
+                        </SelectItem>
+                        <SelectItem value="Oil - 1:33">Oil - 1:33</SelectItem>
+                        <SelectItem value="Commodities">Commodities</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -327,34 +442,32 @@ const AddCompanyFrom = () => {
             <FormField
               control={form.control}
               name="commission"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Commission </FormLabel>
-                  <FormControl>
-                    <Input placeholder="Commission" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />{" "}
-            <FormField
-              control={form.control}
-              name="evaluationType"
               render={({ field: { onChange, value, ...rest } }) => (
                 <FormItem>
-                  <FormLabel>Evaluation Type </FormLabel>
+                  <FormLabel>Commission</FormLabel>
                   <FormControl>
                     <Select onValueChange={onChange} value={value}>
                       <SelectTrigger className="w-full">
-                        <SelectValue placeholder="Evaluation Type" />
+                        <SelectValue placeholder="Commission" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="1 step">1 step</SelectItem>
-                        <SelectItem value="2 step">2 step</SelectItem>
-                        <SelectItem value="3 step">3 step</SelectItem>
-
-                        <SelectItem value="Instant or Funded">
-                          Instant or Funded
+                        <SelectItem value="Forex- $X Per Round Lot">
+                          Forex- $X Per Round Lo
+                        </SelectItem>
+                        <SelectItem value="Metal- $X Per Round Lot">
+                          Metal- $X Per Round Lot
+                        </SelectItem>
+                        <SelectItem value="Indices- $X Per Round Lot">
+                          Indices- $X Per Round Lot
+                        </SelectItem>
+                        <SelectItem value="Crypto- $X Per Round Lot">
+                          Crypto- $X Per Round Lot
+                        </SelectItem>
+                        <SelectItem value="Oil- $X Per Round Lot">
+                          Oil- $X Per Round Lot
+                        </SelectItem>
+                        <SelectItem value="Commodities- $X Per Round Lot">
+                          Commodities- $X Per Round Lot
                         </SelectItem>
                       </SelectContent>
                     </Select>
@@ -362,7 +475,106 @@ const AddCompanyFrom = () => {
                   <FormMessage />
                 </FormItem>
               )}
+            />
+            <FormField
+              control={form.control}
+              name="evaluationType"
+              render={({ field: { value, onChange, ...rest } }) => (
+                <FormItem>
+                  <FormLabel> Evaluation Type</FormLabel>
+                  <FormControl>
+                    <MultiSelect
+                      options={evalutionTypeOption}
+                      selectedValues={value}
+                      onSelectedValuesChange={(e) => {
+                        onChange(e);
+                        setSelectedEvalutionTypes(e);
+                        // console.log(e);
+                      }}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
             />{" "}
+            {/* ================================== */}
+            {form.getValues().evaluationType.includes("Step 1") && (
+              <FormField
+                control={form.control}
+                name="step1"
+                render={({ field: { value, onChange, ...rest } }) => (
+                  <FormItem>
+                    <FormLabel>Step 1</FormLabel>
+                    <FormControl>
+                      <MultiSelect
+                        options={evalutionTypeValueArray}
+                        selectedValues={value}
+                        onSelectedValuesChange={onChange}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            )}
+            {form.getValues().evaluationType.includes("Step 2") && (
+              <FormField
+                control={form.control}
+                name="step2"
+                render={({ field: { value, onChange, ...rest } }) => (
+                  <FormItem>
+                    <FormLabel>Step 2</FormLabel>
+                    <FormControl>
+                      <MultiSelect
+                        options={evalutionTypeValueArray}
+                        selectedValues={value}
+                        onSelectedValuesChange={onChange}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            )}
+            {form.getValues().evaluationType.includes("Step 3") && (
+              <FormField
+                control={form.control}
+                name="step3"
+                render={({ field: { value, onChange, ...rest } }) => (
+                  <FormItem>
+                    <FormLabel>Step 3</FormLabel>
+                    <FormControl>
+                      <MultiSelect
+                        options={evalutionTypeValueArray}
+                        selectedValues={value}
+                        onSelectedValuesChange={onChange}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            )}
+            {form.getValues().evaluationType.includes("Instant or Funded") && (
+              <FormField
+                control={form.control}
+                name="instantOrFunded"
+                render={({ field: { value, onChange, ...rest } }) => (
+                  <FormItem>
+                    <FormLabel> Instant or Funded </FormLabel>
+                    <FormControl>
+                      <MultiSelect
+                        options={evalutionTypeValueArray}
+                        selectedValues={value}
+                        onSelectedValuesChange={onChange}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            )}
+            {/* ================================== */}
             <FormField
               control={form.control}
               name="accountSize"

@@ -24,18 +24,13 @@ import { countryListName } from "@/app/constant/countriesData";
 import MultiSelect from "@/app/components/ui/multi-select";
 import { Button } from "@/app/components/ui/button";
 
-import { useUpdateCompany } from "../../api/api-queries";
+import { useFetchSingleCompany, useUpdateCompany } from "../../api/api-queries";
 
 import { Schema, z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useParams } from "next/navigation";
-const UpdateCompanyFrom = async ({
-  currentCompany,
-}: {
-  currentCompany: any;
-}) => {
-  const params: any = useParams();
-
+const UpdateCompanyFrom = ({ data }: { data: any }) => {
+  const params = useParams();
   const schema = z.object({
     name: z.string().nonempty("This field is required"),
     url: z.string().nonempty("This field is required").url("Enter a valid url"),
@@ -80,46 +75,44 @@ const UpdateCompanyFrom = async ({
 
   const form = useForm<AddCompanyType>({
     defaultValues: {
-      name: currentCompany?.name ? currentCompany?.name : "",
-      url: currentCompany?.url ? currentCompany?.url : "",
-      ceo: currentCompany?.ceo ? currentCompany?.ceo : "",
-      establishedYear: currentCompany?.establishedYear
-        ? currentCompany?.establishedYear
-        : "",
-      country: currentCompany?.country,
-      broker: currentCompany?.broker,
-      platformUse: currentCompany?.platformUse,
-      trustPilotReview: currentCompany?.trustPilotReview,
-      instrument: currentCompany?.instrument,
-      googleReview: currentCompany?.googleReview,
-      paymentMethod: currentCompany?.paymentMethod,
-      payoutMethod: currentCompany?.payoutMethod,
-      minimumPayoutCondition: currentCompany?.minimumPayoutCondition,
-      leverage: currentCompany?.leverage,
-      commission: currentCompany?.commission,
-      evaluationType: currentCompany?.evaluationType,
-      accountSize: currentCompany?.accountSize,
-      actualPrice: currentCompany?.actualPrice,
-      demoAccount: currentCompany?.demoAccount,
-      discountedPrice: currentCompany?.discountedPrice,
-      profitSplit: currentCompany?.profitSplit,
-      profitTarget: currentCompany?.profitTarget,
-      drawdownResetType: currentCompany?.drawdownResetType,
-      dailyDrawdown: currentCompany?.dailyDrawdown,
-      maxDrawdown: currentCompany?.maxDrawdown,
-      profitToDrawdownRatio: currentCompany?.profitToDrawdownRatio,
+      name: data?.name ? data?.name : "",
+      url: data?.url ? data?.url : "",
+      ceo: data?.ceo ? data?.ceo : "",
+      establishedYear: data?.establishedYear ? data?.establishedYear : "",
+      country: data?.country,
+      broker: data?.broker,
+      platformUse: data?.platformUse,
+      trustPilotReview: data?.trustPilotReview,
+      instrument: data?.instrument,
+      googleReview: data?.googleReview,
+      paymentMethod: data?.paymentMethod,
+      payoutMethod: data?.payoutMethod,
+      minimumPayoutCondition: data?.minimumPayoutCondition,
+      leverage: data?.leverage,
+      commission: data?.commission,
+      evaluationType: data?.evaluationType,
+      accountSize: data?.accountSize,
+      actualPrice: data?.actualPrice,
+      demoAccount: data?.demoAccount,
+      discountedPrice: data?.discountedPrice,
+      profitSplit: data?.profitSplit,
+      profitTarget: data?.profitTarget,
+      drawdownResetType: data?.drawdownResetType,
+      dailyDrawdown: data?.dailyDrawdown,
+      maxDrawdown: data?.maxDrawdown,
+      profitToDrawdownRatio: data?.profitToDrawdownRatio,
       countriesServing: [],
       countriesNotServing: [],
-      paymentSettlementDays: currentCompany?.paymentSettlementDays,
-      timeLimit: currentCompany?.timeLimit,
-      minimumTradingDays: currentCompany?.minimumTradingDays,
-      newsTrading: currentCompany?.newsTrading,
-      weekendHolding: currentCompany?.weekendHolding,
-      expertAdvice: currentCompany?.expertAdvice,
-      highFrequencyTrades: currentCompany?.highFrequencyTrades,
-      tradeCopier: currentCompany?.tradeCopier,
-      firstPayout: currentCompany?.firstPayout,
-      subsequentPayouts: currentCompany?.subsequentPayouts,
+      paymentSettlementDays: data?.paymentSettlementDays,
+      timeLimit: data?.timeLimit,
+      minimumTradingDays: data?.minimumTradingDays,
+      newsTrading: data?.newsTrading,
+      weekendHolding: data?.weekendHolding,
+      expertAdvice: data?.expertAdvice,
+      highFrequencyTrades: data?.highFrequencyTrades,
+      tradeCopier: data?.tradeCopier,
+      firstPayout: data?.firstPayout,
+      subsequentPayouts: data?.subsequentPayouts,
       logo: "",
     },
     resolver: zodResolver(schema),
@@ -132,7 +125,7 @@ const UpdateCompanyFrom = async ({
   };
 
   return (
-    <div>
+    <div key={data?.id}>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(handleSubmit)}>
           <div className="grid grid-cols-3 gap-5">

@@ -1,12 +1,12 @@
 export type AddCompanyType = {
-  id?: string;
+  id?: string | string[];
   name: string;
   url: string;
   ceo: string;
   establishedYear: string;
   country: string;
   broker: string;
-  platformUse: string;
+  platformUse: string[];
   trustPilotReview: string;
   googleReview: string;
   paymentMethod: string;
@@ -15,7 +15,11 @@ export type AddCompanyType = {
   minimumPayoutCondition: string;
   leverage: string;
   commission: string;
-  evaluationType: string;
+  evaluationType: string[];
+  step1: string[];
+  step2: string[];
+  step3: string[];
+  instantOrFunded: string[];
   accountSize: number | string;
   actualPrice: number;
   demoAccount: string;

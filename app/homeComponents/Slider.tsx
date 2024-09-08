@@ -65,10 +65,7 @@ export function Slider() {
                 },
                 index: number
               ) => (
-                <CarouselItem
-                  key={index}
-                  className="md:basis-1/2 lg:basis-1/3 "
-                >
+                <CarouselItem key={index} className="basis-1/2 lg:basis-1/3 ">
                   <div className=" p-1 text-black flex items-center gap-5 px-[16px]">
                     <Image
                       src={data.img}
