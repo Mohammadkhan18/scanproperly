@@ -44,7 +44,7 @@ export function Slider() {
     Autoplay({ delay: 2000, stopOnInteraction: true })
   );
   return (
-    <div className="container mx-auto px-14  py-[24px] ">
+    <div className="container mx-auto  px-4 py-[12px] lg:px-14 lg:py-[24px] ">
       <div className=" py-[40px] bg-white rounded-xl">
         {" "}
         <Carousel

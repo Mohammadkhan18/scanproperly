@@ -91,7 +91,7 @@ const CompaniesData = () => {
   const { data, isLoading } = useFetchCompany();
 
   return (
-    <div className="container mx-auto px-14 py-[24px] space-y-5">
+    <div className="container mx-auto  px-4 py-[12px] lg:px-14 lg:py-[24px] space-y-5">
       {/* ============ filters =========== */}
       <div className=" items-center justify-between hidden mc:flex">
         {title?.map((data: { title: string }, index: number) => (

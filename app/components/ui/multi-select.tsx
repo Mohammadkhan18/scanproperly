@@ -62,7 +62,11 @@ const MultiSelect = ({
                           variant="outline"
                           className="m-[2px] gap-1 pr-0.5"
                         >
-                          <span>{option.label}</span>
+                          <span>
+                            {option.label?.length > 10
+                              ? `${option.label.slice(0, 9)}...`
+                              : option.label}
+                          </span>
                           <span
                             onClick={(e) => {
                               e.preventDefault();
@@ -78,6 +82,7 @@ const MultiSelect = ({
                       ))}
 
                   {options &&
+                    options?.length > 2 &&
                     `${
                       options
                         .filter((option) =>

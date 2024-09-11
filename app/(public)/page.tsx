@@ -31,13 +31,14 @@ const Home = () => {
       <Slider />
       <CompaniesData />
 
-      <div className="container mx-auto  px-14 py-[24px]">
+      <div className="container mx-auto  px-4 py-[12px] lg:px-14 lg:py-[24px]">
         <SharedHero data={exHeroData} isGradeint={false} />
       </div>
       <ExOffer />
+
       <HowDoseItWork />
 
-      <div className="container mx-auto  px-14 py-[24px]">
+      <div className="container mx-auto  px-4 py-[12px] lg:px-14 lg:py-[24px]">
         <SharedHero data={bestOfferHeroData} isGradeint={false} />
       </div>
       <BstOffer />

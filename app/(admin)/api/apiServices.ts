@@ -3,7 +3,7 @@ import { AddCompanyType } from "@/app/@types/companyTypes";
 import { api } from "@/app/lib/api-client";
 import { useParams } from "next/navigation";
 
-export const addCompany = (data: AddCompanyType) => {
+export const addCompany = (data: any) => {
   const formdata = new FormData();
   formdata.append("name", data.name);
   formdata.append("url", data.url);
@@ -22,6 +22,12 @@ export const addCompany = (data: AddCompanyType) => {
   formdata.append("commission", data.commission);
   formdata.append("demoAccount", data.demoAccount);
   formdata.append("evaluationType", data.evaluationType);
+  data.evaluationType.includes("Step 1") &&
+    formdata.append("step_1", data.step1);
+  data.evaluationType.includes("Step 2") &&
+    formdata.append("step_2", data.step2);
+  data.evaluationType.includes("Step 3") &&
+    formdata.append("step_3", data.step3);
   formdata.append("accountSize", data.accountSize as any);
   formdata.append("actualPrice", data.actualPrice as any);
   formdata.append("discountedPrice", data.discountedPrice);
@@ -47,7 +53,7 @@ export const addCompany = (data: AddCompanyType) => {
   return api.post("/v1/companies", formdata);
 };
 
-export const updateCompany = (data: AddCompanyType) => {
+export const updateCompany = (data: any) => {
   const formdata = new FormData();
   formdata.append("name", data.name);
   formdata.append("url", data.url);
@@ -66,6 +72,12 @@ export const updateCompany = (data: AddCompanyType) => {
   formdata.append("commission", data.commission);
   formdata.append("demoAccount", data.demoAccount);
   formdata.append("evaluationType", data.evaluationType);
+  data.evaluationType.includes("Step 1") &&
+    formdata.append("step_1", data.step1);
+  data.evaluationType.includes("Step 2") &&
+    formdata.append("step_2", data.step2);
+  data.evaluationType.includes("Step 3") &&
+    formdata.append("step_3", data.step3);
   formdata.append("accountSize", data.accountSize as any);
   formdata.append("actualPrice", data.actualPrice as any);
   formdata.append("discountedPrice", data.discountedPrice);
@@ -88,6 +100,7 @@ export const updateCompany = (data: AddCompanyType) => {
   formdata.append("firstPayout", data.firstPayout);
   formdata.append("subsequentPayouts", data.subsequentPayouts);
   formdata.append("logo", data.logo[0]);
+  return api.post("/v1/companies", formdata);
   return api.post(`/v1/companies/${data.id}`, formdata);
 };
 
@@ -110,8 +123,22 @@ export const getSingleComapny = (id: any) => {
 export const addBlog = (data: any) => {
   const formdata = new FormData();
   formdata.append("title", data.title);
-  formdata.append("content", data.description);
+  formdata.append("content", data.content);
   formdata.append("image", data.image[0]);
+  formdata.append("metaKeywords", data.metakeyword);
+  formdata.append("metaRobots", data.robotsKeyword);
+  formdata.append("metaTitle", data.metaTitle);
+  formdata.append("metaDescription", data.metaDescription);
+  formdata.append("anchorTexting", data.anchorTexting);
+  formdata.append("internalLinking", data.internalLinking);
+  formdata.append("urlEditing", data.urlEditing);
+  formdata.append("xmlSiteMap", data.xmlSitemap);
+  formdata.append("schemaMetaData", data.schemaMetaData);
+  formdata.append("favicon", data.favicon[0]);
+  formdata.append("canonicalUrl", data.canonicalUrl);
+  formdata.append("openGraph", data.openGraph);
+  formdata.append("altImageAttributes", data.altImageAttributes);
+
   return api.post("/v1/blogs", formdata);
 };
 
@@ -120,6 +147,19 @@ export const updateBlog = (data: any) => {
   formdata.append("title", data.title);
   formdata.append("content", data.description);
   formdata.append("image", data.image[0]);
+  formdata.append("metaKeywords", data.metakeyword);
+  formdata.append("metaRobots", data.robotsKeyword);
+  formdata.append("metaTitle", data.metaTitle);
+  formdata.append("metaDescription", data.metaDescription);
+  formdata.append("anchorTexting", data.anchorTexting);
+  formdata.append("internalLinking", data.internalLinking);
+  formdata.append("urlEditing", data.urlEditing);
+  formdata.append("xmlSiteMap", data.xmlSitemap);
+  formdata.append("schemaMetaData", data.schemaMetaData);
+  formdata.append("favicon", data.favicon[0]);
+  formdata.append("canonicalUrl", data.canonicalUrl);
+  formdata.append("openGraph", data.openGraph);
+  formdata.append("altImageAttributes", data.altImageAttributes);
   return api.patch(`/v1/blogs/${data.id}`, formdata);
 };
 

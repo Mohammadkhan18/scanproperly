@@ -17,14 +17,14 @@ const NavbarTab = () => {
   const route = usePathname();
 
   return (
-    <div className="w-full bg-white rounded-lg px-4 py-2">
+    <div className="w-full bg-white rounded-lg px-4 py-2 hidden sm:block">
       <div className="flex list-none items-center justify-between">
         {navigation?.map(
           (nav: { title: string; path: string }, index: number) => (
             <Link
               key={index}
               href={`${nav.path}`}
-              className={`rounded-lg px-[16px] py-[8px] ${
+              className={`rounded-lg px-[16px] py-[8px] font-[400] text-[11px] leading-[14px] lg:text-[16px] lg:leading-[20px] ${
                 nav.path === route ? "bg-primary text-white" : ""
               } `}
             >

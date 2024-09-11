@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 const AdminNavbar = () => {
   const rout = useRouter();
   return (
-    <div className="container mx-auto px-14 py-[24px] flex items-center justify-between">
+    <div className="container mx-auto px-4 py-[12px] lg:px-14 lg:py-[24px] flex items-center justify-between">
       <div className="flex items-center gap-[8px]">
         <Image
           src={logo}

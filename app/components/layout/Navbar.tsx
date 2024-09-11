@@ -10,11 +10,12 @@ import hameburger from "../../../public/hameburger.svg";
 import NavbarTab from "./NavbarTab";
 import logo from "../../../public/logo.svg";
 import start from "../../../public/star.svg";
-
+import { DropdownMenuTrigger } from "../ui/dropdown-menu";
+import MobDropdownNav from "./MobDropdownNav";
 
 const Navbar = () => {
   return (
-    <div className="container mx-auto px-14 ">
+    <div className="container mx-auto px-4 sm:px-14 ">
       {" "}
       <div className="flex item-center justify-between py-[16px]">
         <div className="flex items-center gap-[8px]">
@@ -36,14 +37,14 @@ const Navbar = () => {
             <p className="text-[13px] text-white">2.9</p>
           </div>
         </div>
-        <div className="flex items-center gap-[16px]">
-          <div className="flex items-center gap-[8px]">
+        <div className="hidden sm:flex items-center gap-[16px] ">
+          <div className="flex items-center gap-[4px] lg:gap-[8px]">
             <div>
               <Image
                 src={twitterIcon}
                 alt="twitter"
                 quality={100}
-                height={24}
+                className="h-[20px] lg:h-[24px]"
               />
             </div>
             <div>
@@ -51,7 +52,7 @@ const Navbar = () => {
                 src={intagramIcon}
                 alt="twitter"
                 quality={100}
-                height={24}
+                className="h-[20px] lg:h-[24px]"
               />
             </div>
             <div>
@@ -59,7 +60,7 @@ const Navbar = () => {
                 src={youtubeIcon}
                 alt="twitter"
                 quality={100}
-                height={24}
+                className="h-[20px] lg:h-[24px]"
               />
             </div>
           </div>
@@ -70,13 +71,35 @@ const Navbar = () => {
             </div>
             <p className="text-[14px] font-semibold mb-0">EN</p>
           </div>
-          <div className="flex itams-center gap-[8px]">
-            <Button className="">Login</Button>
-            <Button className="">Signup</Button>
+          <div className="flex itams-center gap-[4px] lg:gap-[8px]">
+            <Button className="text-[12xp] lg:text-[16px] text-white px-2 py-1 lg:px-[8px] ">
+              Login
+            </Button>
+            <Button className="text-[12xp] lg:text-[16px] text-white px-2 py-1 lg:px-[8px] ">
+              Signup
+            </Button>
           </div>
           <div className="bg-white rounded-md px-4 py-3">
-            <Image src={hameburger} alt="Hameburger" height={18} />
+            <Image
+              src={hameburger}
+              alt="Hameburger"
+              height={18}
+              className="h-[14px] lg:h-[18px]"
+            />
           </div>
+        </div>
+
+        <div className="flex items-center justify-center sm:hidden bg-white rounded-md px-4 py-3">
+          <MobDropdownNav>
+            <DropdownMenuTrigger asChild>
+              <Image
+                src={hameburger}
+                alt="Hameburger"
+                height={18}
+                className="h-[14px] lg:h-[18px]"
+              />
+            </DropdownMenuTrigger>
+          </MobDropdownNav>
         </div>
       </div>
       {/* ===================== navbar tabs ====================== */}
