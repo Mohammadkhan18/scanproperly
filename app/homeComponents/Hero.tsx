@@ -10,10 +10,10 @@ import { homeSelecterData } from "../constant";
 
 const Hero = () => {
   return (
-    <div className="container mx-auto px-14 py-[24px]">
-      <div className="px-[40px] py-[24px] flex gap-24 justify-between rounded-[20px] bg-gradient">
+    <div className="container mx-auto px-4 py-[12px] lg:px-14 lg:py-[24px]">
+      <div className="px-[12px] py-[12px] lg:px-[40px] lg:py-[24px] flex gap-24 justify-between rounded-[20px] bg-gradient">
         <div className="flex flex-col gap-7">
-          <h1 className="text-[28px] font-[600] leading-[35px] lg:text-[40px]  lg:leading-[50px] text-white">
+          <h1 className="text-[20px] font-[600] leading-[25px] sm:text-[28px]  sm:leading-[35px] lg:text-[40px]  lg:leading-[50px] text-white">
             What plan do you want to compare?
           </h1>
 

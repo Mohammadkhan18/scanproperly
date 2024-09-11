@@ -13,7 +13,7 @@ import {
   updateCompany,
 } from "./apiServices";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { useParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export const useAddCompany = () => {
   const queryClient = useQueryClient();
@@ -25,7 +25,9 @@ export const useAddCompany = () => {
         queryKey: ["companies", "list"],
       });
 
-      router.push("/company");
+      setTimeout(() => {
+        router.push("/company");
+      }, 500);
     },
   });
 };
@@ -40,7 +42,9 @@ export const useUpdateCompany = () => {
         queryKey: ["companies", "list"],
       });
 
-      router.push("/company");
+      setTimeout(() => {
+        router.push("/company");
+      }, 500);
     },
   });
 };

@@ -15,7 +15,7 @@ const Review = ({
   return (
     <div className="flex flex-col gap-1">
       <div className="flex items-center gap-2">
-        <p className="text-[12px] font-[600] leading-[14.52px]">
+        <p className="font-[600] text-[4px]  leading-[6.52px] sm:text-[8px]  sm:leading-[10.52px] lg:text-[12px]  lg:leading-[14.52px]">
           {data?.review}:
         </p>
         <div
@@ -23,7 +23,9 @@ const Review = ({
             percent === "fill" ? "bg-primary text-white" : ""
           }`}
         >
-          <p className={`text-[10.93px] font-[600] leading-[13.23px]   `}>
+          <p
+            className={` font-[600] text-[4px]  leading-[6.52px] sm:text-[8px]  sm:leading-[10.52px] lg:text-[12px]  lg:leading-[14.52px]`}
+          >
             {data?.rating}/5
           </p>
         </div>
@@ -32,16 +34,16 @@ const Review = ({
         <div className="flex ">
           {Array.from({ length: Math.round(Number(data?.rating)) })?.map(
             (start) => (
-              <FaStar className="text-primary text-[14px] lg:text-[18px]" />
+              <FaStar className="text-primary text-[8px] sm:text-[12px] lg:text-[18px]" />
             )
           )}
         </div>
         <p
-          className={`text-[10.23px] font-[600] leading-[12px] text-primary mb-[-5px]`}
+          className={`font-[600] text-[4px]  leading-[6.52px] sm:text-[6px]  sm:leading-[8.52px] lg:text-[10px]  lg:leading-[12.52px]  text-primary mb-[-5px]`}
         >
           11.234
         </p>
-        <p className="text-[10.23px] font-[300] leading-[12px] mb-[-5px]">
+        <p className="font-[300] text-[4px]  leading-[6.52px] sm:text-[6px]  sm:leading-[8.52px] lg:text-[10px]  lg:leading-[12.52px]  mb-[-5px]">
           Review
         </p>
       </div>

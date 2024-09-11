@@ -18,8 +18,8 @@ const BlogsPage = async () => {
   });
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <div className="container mx-auto px-14 py-[24px] ">
-        <h1 className="font-[600] text-[40px] leading-[50px] text-center">
+      <div className="container mx-auto  px-4 py-[12px] lg:px-14 lg:py-[24px] ">
+        <h1 className="text-[20px] font-[600] leading-[25px] sm:text-[28px]  sm:leading-[35px] lg:text-[40px]  lg:leading-[50px] text-center">
           Our Latest Blogs
         </h1>
         <AllBlogs />

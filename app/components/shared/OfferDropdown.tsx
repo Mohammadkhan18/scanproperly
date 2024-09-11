@@ -36,23 +36,25 @@ const OfferDropdown = () => {
 
   return (
     <div className="relative  ">
-      <div className=" flex items-center justify-between bg-grayBackground p-3 z-[1]">
-        <div className=" flex gap-5 items-center">
-          <NumberBadge />
-          <div className="h-[px] w-[80px]  md:h-[112px] md:w-[112px] rounded-full">
-            <Avatar className="">
-              {/* <AvatarImage
+      <div className=" flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-0 justify-between bg-grayBackground p-3 z-[1]">
+        <div className=" flex flex-col md:flex-row gap-3 md:gap-5 md:items-center">
+          <div className=" flex gap-3 md:gap-5 ">
+            <NumberBadge />
+            <div className="h-[50px] w-[50px] sm:h-[60px] sm:w-[60px] md:h-[80px] md:w-[80px]  lg:h-[112px] lg:w-[112px] rounded-full">
+              <Avatar className="">
+                {/* <AvatarImage
                 src={imageUrl}
                 alt="Best offer"
                 className="bg-[#04070E]"
               /> */}
-              <AvatarFallback className="bg-[#04070E] text-white">
-                BO
-              </AvatarFallback>
-            </Avatar>
+                <AvatarFallback className="bg-[#04070E] text-white">
+                  BO
+                </AvatarFallback>
+              </Avatar>
+            </div>
           </div>
           <div>
-            <h3 className="font-[600] text-[24px] leading-[40px]  md:font-[600] md:text-[32px] md:leading-[50px]">
+            <h3 className="font-[600] text-[10px] leading-[15px]  sm:text-[24px] sm:leading-[40px]  md:font-[600] md:text-[32px] md:leading-[50px]">
               The 5%ers
             </h3>
             <div className="flex gap-10">
@@ -69,11 +71,11 @@ const OfferDropdown = () => {
         </div>
         <div ref={dropdownRef}>
           <div
-            className="flex items-center  bg-primary rounded-md text-white md:pl-2 md:px-2"
+            className="cursor-pointer flex items-center justify-center gap-2  bg-primary rounded-md text-white px-1 py-2 md:px-3  md:py-4 lg:px-6 font-[600] text-[6px] leading-[11px] sm:text-[12px] sm:leading-[24px] lg:text-[16px] lg:leading-[24px]"
             onClick={handleToggleModal}
           >
-            <FaAngleDown className="text-[20px]" />{" "}
-            <Button className="px-1 py-4 md:py-6">Select Best Offer</Button>
+            <FaAngleDown className="" />{" "}
+            <span className="">Select Best Offer</span>
           </div>
         </div>
       </div>
@@ -82,27 +84,27 @@ const OfferDropdown = () => {
           ref={dropdownRef}
           className="absolute top-[100%] w-full flex items-center justify-center z-[1000] "
         >
-          <div className=" px-12 py-16 border-[7.5px] border-white bg-grayBackground min-h-[100px] w-[97%] flex flex-col justify-center gap-10 shadow-xl">
+          <div className=" lg:px-12 lg:py-16 border-[7.5px] border-white bg-grayBackground min-h-[100px] w-[97%] flex flex-col justify-center gap-10 shadow-xl">
             {[1, 2]?.map((data: any) => (
-              <div className="flex items-center h-full justify-between">
+              <div className="flex flex-col xl:flex-row items-start gap-5 xl:items-center h-full xl:justify-between">
                 <div>
-                  <h3 className="font-[600] text-[20px] leading-[40px] md:font-[600] md:text-[24px] md:leading-[50px]">
+                  <h3 className="font-[600] text-[10px] leading-[15px]  sm:text-[24px] sm:leading-[40px]  md:text-[32px] md:leading-[50px]">
                     Ability Challenge
                   </h3>
                 </div>
-                <div className="flex-1 flex items-center justify-end gap-20">
-                  <h3 className="font-[600] text-[24px] leading-[40px] md:font-[600] md:text-[32px] md:leading-[50px]">
+                <div className="w-full flex-1 flex flex-col md:flex-row gap-3 md:gap-10 xl:gap-20">
+                  <h3 className="flex-1 font-[600] text-[10px] leading-[15px]  sm:text-[24px] sm:leading-[40px]   md:text-[32px] md:leading-[50px]">
                     15% off
                   </h3>
-                  <div className="flex items-center gap-3 text-white">
+                  <div className="flex-1 flex items-center gap-3 text-white">
                     <div className="flex items-center gap-1">
-                      <div className="px-[20px] py-3 rounded-l-[10px] bg-primary">
-                        <p className="font-[600] text-[16px] leading-[24px]">
+                      <div className="px-[10px] py-2 sm:px-[20px] sm:py-3 rounded-l-[10px] bg-primary">
+                        <p className="font-[600]  text-[8px] leading-[15px]  sm:text-[12px] sm:leading-[20px]   md:text-[16px] md:leading-[24px]">
                           Code
                         </p>
                       </div>
-                      <div className="px-[20px] py-3  rounded-r-[10px] bg-primary">
-                        <p className="font-[600] text-[16px] leading-[24px]">
+                      <div className="px-[10px] py-2 sm:px-[20px] sm:py-3  rounded-r-[10px] bg-primary">
+                        <p className="font-[600]  text-[8px] leading-[15px]  sm:text-[12px] sm:leading-[20px]   md:text-[16px] md:leading-[24px] ">
                           XYZ15
                         </p>
                       </div>
@@ -113,9 +115,14 @@ const OfferDropdown = () => {
                       quality={100}
                       height={50}
                       width={45}
+                      className="h-[25px] w-[25px]  sm:h-[40px] sm:w-[40px] lg:h-[50px] lg:w-[50px]"
                     />
                   </div>
-                  <Button className="px-5 py-6">Goto Deal</Button>
+                  <div className="flex-1 flex md:justify-end">
+                    <div className="flex items-center justify-center gap-2  bg-primary rounded-md text-white px-1 py-2 md:px-3  md:py-4 lg:px-6 font-[600] text-[6px] leading-[11px] sm:text-[12px] sm:leading-[24px] ">
+                      Go to deal
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
