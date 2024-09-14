@@ -9,7 +9,7 @@ import {
 } from "@tanstack/react-query";
 import { fetchBlogs } from "@/app/(admin)/api/apiServices";
 
-const BlogsPage = async () => {
+const Blogs = async () => {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
@@ -28,4 +28,4 @@ const BlogsPage = async () => {
   );
 };
 
-export default BlogsPage;
+export default Blogs;

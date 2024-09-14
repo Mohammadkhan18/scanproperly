@@ -30,9 +30,7 @@ const SignIn = () => {
 
   const { register, handleSubmit } = form;
 
-  const onSubmit = (values: SignInType) => {
-    console.log("values", values);
-  };
+  const onSubmit = (values: SignInType) => {};
 
   const toggleShowPassword = () => {
     setIsShowpassword((prev) => !prev);

@@ -105,7 +105,7 @@ const AddBlogsFrom = () => {
   const { mutate: addBlog } = useAddBlog();
 
   const handleSubmit = (values: AddBlogType) => {
-    console.log(values);
+
     addBlog({ ...values, metakeyword: tags, robotsKeyword: robots });
   };
 

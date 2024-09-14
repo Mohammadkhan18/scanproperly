@@ -7,14 +7,12 @@ import Loader from "@/app/components/shared/Loader";
 import { Button } from "@/app/components/ui/button";
 import { BsArrowLeft } from "react-icons/bs";
 import { useFetchingSingleBlog } from "../../api/api-queries";
-import { useQuery } from "@tanstack/react-query";
-import { useParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
-const UpdateBlog = () => {
-  const params = useParams();
+const UpdateBlog = (props: any) => {
   const router = useRouter();
 
-  const { data, isLoading } = useFetchingSingleBlog(params?.id);
+  const { data, isLoading } = useFetchingSingleBlog(props.params.id);
 
   return (
     <div className="container mx-auto px-14 py-[24px]">
