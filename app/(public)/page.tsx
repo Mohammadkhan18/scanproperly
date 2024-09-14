@@ -10,7 +10,7 @@ import Testimonial from "../homeComponents/Testimonial";
 import Subscribe from "../homeComponents/Subscribe";
 import ExOffer from "./exclusive-offer/components/ExOffer";
 import BstOffer from "./best-offer/bestOfferComponent/bstOffer";
-import BlogsPage from "./blogs-page/page";
+import BlogsPage from "./blogs/page";
 
 const exHeroData = {
   title: "Best Sellers",

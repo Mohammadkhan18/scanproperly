@@ -582,7 +582,6 @@ const AddCompanyFrom = () => {
                           onSelectedValuesChange={(e) => {
                             onChange(e);
                             setSelectedEvalutionTypes(e);
-                            // console.log(e);
                           }}
                         />
                       </FormControl>

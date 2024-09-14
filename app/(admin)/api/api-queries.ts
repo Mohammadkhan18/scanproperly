@@ -105,6 +105,19 @@ export const useFetchingSingleBlog = (id: string | string[]) => {
   });
 };
 
+export const fetchingSingleBlog = (id: string | string[]) => {
+  return useQuery({
+    queryKey: [`${id}`, "blog"],
+    queryFn: () => {
+      return fetchSingleBlog(id);
+    },
+    enabled: !!id,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    staleTime: Infinity,
+  });
+};
+
 export const useAddBlog = () => {
   const queryClient = useQueryClient();
   const router = useRouter();

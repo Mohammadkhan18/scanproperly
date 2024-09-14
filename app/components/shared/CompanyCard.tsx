@@ -9,7 +9,6 @@ import Review from "./Review";
 import { CommandEmpty } from "cmdk";
 
 const CompanyCard = ({ companyData }: { companyData: any }) => {
-  console.log("companyData", companyData);
   return (
     <div>
       {/* ================== descktop view ============= */}
