@@ -76,7 +76,7 @@ const AddBlogsFrom = () => {
     openGraph: z.any(),
     xmlSitemap: z.any(),
     schemaMetaData: z.any(),
-    favicon: z.any(),
+    // favicon: z.any(),
     urlEditing: z.any(),
     internalLinking: z.any(),
     anchorTexting: z.any(),
@@ -359,7 +359,7 @@ const AddBlogsFrom = () => {
                   )}
                 />
               </div>
-              <FormField
+              {/* <FormField
                 control={form.control}
                 name="favicon"
                 render={({ field }) => (
@@ -371,7 +371,7 @@ const AddBlogsFrom = () => {
                     <FormMessage />
                   </FormItem>
                 )}
-              />
+              /> */}
             </div>
           </div>
 
