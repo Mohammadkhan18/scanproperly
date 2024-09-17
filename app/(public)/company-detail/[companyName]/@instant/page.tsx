@@ -1,5 +1,5 @@
 import React from "react";
-import instantLogo from "../../../../public/instantFunding-logo.svg";
+import instantLogo from "../../../../../public/instantFunding-logo.svg";
 import Image from "next/image";
 import { Progress } from "@/app/components/ui/progress";
 import { Button } from "@/app/components/ui/button";

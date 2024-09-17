@@ -17,9 +17,28 @@ import {
 import { Input } from "@/app/components/ui/input";
 import { Textarea } from "@/app/components/ui/textarea";
 import { Button } from "@/app/components/ui/button";
-import { AddBlogType } from "@/app/@types/blogTypes";
+
 import { useAddBlog } from "../../api/api-queries";
 import ImageUpload from "@/app/components/shared/ImageUpload";
+
+type AddBlogType = {
+  id?: number | string;
+  title: string;
+  image: File | FileList | null;
+  description: string;
+  metaTitle: string;
+  metaDescription: string;
+  tags: string[];
+  altImageAttributes: string;
+  canonicalUrl: string;
+  openGraph: string;
+  xmlSitemap: string;
+  schemaMetaData: string;
+  favicon: File | FileList | null;
+  urlEditing: string;
+  internalLinking: string;
+  anchorTexting: string;
+};
 
 const AddBlogsFrom = () => {
   const [tags, setTags] = useState<string[]>([]);
@@ -105,7 +124,6 @@ const AddBlogsFrom = () => {
   const { mutate: addBlog } = useAddBlog();
 
   const handleSubmit = (values: AddBlogType) => {
-
     addBlog({ ...values, metakeyword: tags, robotsKeyword: robots });
   };
 

@@ -12,7 +12,7 @@ import {
 } from "@/app/components/ui/form";
 import { useForm } from "react-hook-form";
 import { Input } from "@/app/components/ui/input";
-import { AddCompanyType } from "@/app/@types/companyTypes";
+
 import {
   Select,
   SelectContent,
@@ -29,6 +29,51 @@ import { useAddCompany } from "../../api/api-queries";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import ImageUpload from "@/app/components/shared/ImageUpload";
+
+type AddCompanyType = {
+  id?: string | string[];
+  name: string;
+  url: string;
+  ceo: string;
+  establishedYear: string;
+  country: string;
+  broker: string;
+  platformUse: string[];
+  trustPilotReview: string;
+  googleReview: string;
+  paymentMethod: [];
+  payoutMethod: [];
+  instrument: [];
+  minimumPayoutCondition: string;
+  leverage: [];
+  commission: [];
+  evaluationType: string[];
+  step1: string;
+  step2: string;
+  step3: string;
+  accountSize: number | string;
+  actualPrice: number | string;
+  discountedPrice: string;
+  profitSplit: string;
+  profitTarget: string;
+  drawdownResetType: string;
+  dailyDrawdown: number | string;
+  maxDrawdown: number | string;
+  profitToDrawdownRatio: string;
+  countriesServing: string[];
+  countriesNotServing: string[];
+  paymentSettlementDays: string;
+  timeLimit: string;
+  minimumTradingDays: number | string;
+  newsTrading: string;
+  weekendHolding: string;
+  expertAdvice: string;
+  highFrequencyTrades: string;
+  tradeCopier: string;
+  firstPayout: string;
+  subsequentPayouts: string;
+  logo: any;
+};
 
 const platformUseArray = [
   { label: "MT4", value: "MT4" },

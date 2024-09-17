@@ -1,7 +1,6 @@
 "use client";
-import { AddCompanyType } from "@/app/@types/companyTypes";
+
 import { api } from "@/app/lib/api-client";
-import { useParams } from "next/navigation";
 
 export const addCompany = (data: any) => {
   const formdata = new FormData();
