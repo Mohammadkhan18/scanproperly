@@ -1,6 +1,6 @@
 import React from "react";
 import SearchInput from "./SearchInput";
-import { type } from "os";
+
 
 type HeroType = {
   title: string;

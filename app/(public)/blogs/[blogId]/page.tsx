@@ -5,7 +5,6 @@ import image from "../../../../public/blogImages/blog-detail.png";
 import Image from "next/image";
 
 import { Metadata } from "next";
-import { fetchSingleBlog } from "@/app/(admin)/api/apiServices";
 
 export const generateMetadata = async ({
   params,

@@ -1,13 +1,11 @@
 import React from "react";
-import BlogCard from "@/app/components/shared/BlogCard";
-import { useFetchBlog } from "@/app/(admin)/api/api-queries";
 import AllBlogs from "./allBlogs/page";
 import {
   HydrationBoundary,
   QueryClient,
   dehydrate,
 } from "@tanstack/react-query";
-import { fetchBlogs } from "@/app/(admin)/api/apiServices";
+import { fetchBlogs } from "../../(admin)/api/apiServices";
 
 const Blogs = async () => {
   const queryClient = new QueryClient();

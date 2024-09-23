@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import UpdateBlogsFrom from "./UpdateBlog";
 
-import Loader from "@/app/components/shared/Loader";
+import Loader from "../../../components/shared/Loader";
 import { Button } from "../../../components/ui/button";
 import { BsArrowLeft } from "react-icons/bs";
 import { useFetchingSingleBlog } from "../../api/api-queries";

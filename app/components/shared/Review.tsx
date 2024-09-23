@@ -1,4 +1,3 @@
-import { Button } from "@/app/components/ui/button";
 import React from "react";
 import { FaStar } from "react-icons/fa";
 

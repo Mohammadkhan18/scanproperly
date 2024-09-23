@@ -2,11 +2,11 @@
 
 import React from "react";
 import { BsArrowLeft } from "react-icons/bs";
-import { Button } from "@/app/components/ui/button";
+import { Button } from "../../../components/ui/button";
 import { useFetchSingleCompany } from "../../api/api-queries";
 import { useParams, useRouter } from "next/navigation";
 import UpdateCompanyFrom from "./UpdateCompanyForm";
-import Loader from "@/app/components/shared/Loader";
+import Loader from "../../../components/shared/Loader";
 
 const UpdateCompany = () => {
   const params = useParams();

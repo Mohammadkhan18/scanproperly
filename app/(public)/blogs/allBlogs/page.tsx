@@ -1,7 +1,7 @@
 "use client";
 
-import { useFetchBlog } from "@/app/(admin)/api/api-queries";
-import BlogCard from "@/app/components/shared/BlogCard";
+import { useFetchBlog } from "../../../(admin)/api/api-queries";
+import BlogCard from "../../../components/shared/BlogCard";
 import React from "react";
 
 const AllBlogs = () => {
