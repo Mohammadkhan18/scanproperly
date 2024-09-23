@@ -2,14 +2,11 @@
 
 import Image from "next/image";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-// import image from "@/public/bestOfferImages/percent.svg";
-import imageUrl from "../../../public/bestOfferImages/percent.svg";
 import Review from "./Review";
-import { Button } from "@/app/components/ui/button";
 import { FaAngleDown } from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
 
-import copy from "@/public/copy.svg";
+import copy from "../../../public/copy.svg";
 import NumberBadge from "./NumberBadge";
 
 const OfferDropdown = () => {

@@ -4,7 +4,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/app/components/ui/select";
+} from "../../../../components/ui/select";
 import React from "react";
 
 // Define types for the data structure

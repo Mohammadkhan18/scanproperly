@@ -2,7 +2,7 @@ import React from "react";
 import instantLogo from "../../../../../public/instantFunding-logo.svg";
 import Image from "next/image";
 import { Progress } from "@/app/components/ui/progress";
-import { Button } from "@/app/components/ui/button";
+import { Button } from "../../../../components/ui/button";
 
 export const ProgressBars = () => {
   return (

@@ -4,8 +4,8 @@ import menImage from "../../public/heroImage/men.svg";
 import traderImage from "../../public/heroImage/trader.svg";
 import avalibilityImage from "../../public/heroImage/availibility.svg";
 import Image from "next/image";
-import { Button } from "@/app/components/ui/button";
-import { Switch } from "@/app/components/ui/switch";
+import { Button } from "../components/ui/button";
+import { Switch } from "../components/ui/switch";
 import { homeSelecterData } from "../constant";
 
 const Hero = () => {

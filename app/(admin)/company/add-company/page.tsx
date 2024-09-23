@@ -4,7 +4,7 @@ import React from "react";
 import AddCompanyFrom from "./AddCompanyForm";
 import { BsArrowLeft } from "react-icons/bs";
 import { useRouter } from "next/navigation";
-import { Button } from "@/app/components/ui/button";
+import { Button } from "../../../components/ui/button";
 
 const AddCompany = () => {
   const router = useRouter();

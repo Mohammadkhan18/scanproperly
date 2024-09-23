@@ -1,11 +1,11 @@
 import React from "react";
 import { Input } from "../components/ui/input";
-import { Button } from "@/app/components/ui/button";
+import { Button } from "../components/ui/button";
 import Image from "next/image";
-import newsIcon from "@/public/subscribeIcon/news.svg";
-import launchIcon from "@/public/subscribeIcon/launch.svg";
-import giveawayIcon from "@/public/subscribeIcon/giveaway.svg";
-import offerIcon from "@/public/subscribeIcon/offer.svg";
+import newsIcon from "../../public/subscribeIcon/news.svg";
+import launchIcon from "../../public/subscribeIcon/launch.svg";
+import giveawayIcon from "../../public/subscribeIcon/giveaway.svg";
+import offerIcon from "../../public/subscribeIcon/offer.svg";
 
 const Subscribe = () => {
   return (

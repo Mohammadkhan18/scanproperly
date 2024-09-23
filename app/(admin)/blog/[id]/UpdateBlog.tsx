@@ -13,13 +13,13 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/app/components/ui/form";
-import { Input } from "@/app/components/ui/input";
-import { Textarea } from "@/app/components/ui/textarea";
-import { Button } from "@/app/components/ui/button";
+} from "../../../components/ui/form";
+import { Input } from "../../../components/ui/input";
+import { Textarea } from "../../../components/ui/textarea";
+import { Button } from "../../../components/ui/button";
 
-import { useAddBlog, useUpdateBlog } from "../../api/api-queries";
-import ImageUpload from "@/app/components/shared/ImageUpload";
+import { useUpdateBlog } from "../../api/api-queries";
+import ImageUpload from "../../../components/shared/ImageUpload";
 
 type AddBlogType = {
   id?: number | string;

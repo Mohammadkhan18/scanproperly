@@ -1,6 +1,5 @@
-// components/ImageUpload.tsx
 import React, { useState, ChangeEvent } from "react";
-import { Controller, useController } from "react-hook-form";
+import { useController } from "react-hook-form";
 import { IoCloudUploadOutline } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
 

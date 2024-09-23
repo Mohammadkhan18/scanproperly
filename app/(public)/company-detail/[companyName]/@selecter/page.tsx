@@ -1,9 +1,9 @@
 import React from "react";
 import { ImClipboard } from "react-icons/im";
 
-import { Button } from "@/app/components/ui/button";
-import { companySelecterData } from "@/app/constant";
-import { Input } from "@/app/components/ui/input";
+import { Button } from "../../../../components/ui/button";
+import { companySelecterData } from "../../../../constant";
+import { Input } from "../../../../components/ui/input";
 
 const Selecter = () => {
   return (
