@@ -1,5 +1,5 @@
 import React from "react";
-import client from "@/public/tetimonialImage/client.svg";
+import client from "../../public/tetimonialImage/client.svg";
 import Image from "next/image";
 import { MdStar } from "react-icons/md";
 
