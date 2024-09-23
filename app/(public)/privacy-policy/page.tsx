@@ -2,7 +2,7 @@ import React from "react";
 
 import Policy from "./privacyPolicyComponent/policy";
 import HowDoseItWorkPrivacyPolicy from "./privacyPolicyComponent/HowDoseItWorkPrivacyPolicy";
-import { privacyPolicy } from "@/app/constant";
+import { privacyPolicy } from "../../constant";
 
 const PrivacyPolicy = () => {
   return (

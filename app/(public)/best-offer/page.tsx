@@ -1,5 +1,5 @@
 import React from "react";
-import SharedHero from "@/app/components/shared/SharedHero";
+import SharedHero from "../../components/shared/SharedHero";
 import BstOffer from "./bestOfferComponent/bstOffer";
 import HowDoseItWork from "./bestOfferComponent/HowDoseItWork";
 

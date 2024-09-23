@@ -1,7 +1,7 @@
 import React from "react";
-import SharedHero from "@/app/components/shared/SharedHero";
+import SharedHero from "../../components/shared/SharedHero";
 import ExOffer from "./components/ExOffer";
-import HowDoseItWork from "@/app/components/shared/HowDoseItWork";
+import HowDoseItWork from "../../components/shared/HowDoseItWork";
 
 const heroData = {
   title: "Best Sellers",

@@ -1,4 +1,4 @@
-import OfferDropdown from "@/app/components/shared/OfferDropdown";
+import OfferDropdown from "../../../components/shared/OfferDropdown";
 import React from "react";
 
 const ExOffer = () => {

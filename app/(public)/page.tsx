@@ -2,9 +2,9 @@ import React from "react";
 import Hero from "../homeComponents/Hero";
 import { Slider } from "../homeComponents/Slider";
 import CompaniesData from "../homeComponents/CompaniesData";
-import SharedHero from "@/app/components/shared/SharedHero";
+import SharedHero from "../components/shared/SharedHero";
 
-import HowDoseItWork from "@/app/components/shared/HowDoseItWork";
+import HowDoseItWork from "../components/shared/HowDoseItWork";
 
 import Testimonial from "../homeComponents/Testimonial";
 import Subscribe from "../homeComponents/Subscribe";
