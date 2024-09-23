@@ -9,9 +9,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/app/components/ui/form";
+} from "../../../components/ui/form";
 import { useForm } from "react-hook-form";
-import { Input } from "@/app/components/ui/input";
+import { Input } from "../../../components/ui/input";
 
 import {
   Select,
@@ -19,16 +19,16 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/app/components/ui/select";
-import { countryListName } from "@/app/constant/countriesData";
-import MultiSelect from "@/app/components/ui/multi-select";
-import { Button } from "@/app/components/ui/button";
+} from "../../../components/ui/select";
+import { countryListName } from "../../../constant/countriesData";
+import MultiSelect from "../../../components/ui/multi-select";
+import { Button } from "../../../components/ui/button";
 
 import { useUpdateCompany } from "../../api/api-queries";
 
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import ImageUpload from "@/app/components/shared/ImageUpload";
+import ImageUpload from "../../../components/shared/ImageUpload";
 import { useParams } from "next/navigation";
 
 type AddCompanyType = {

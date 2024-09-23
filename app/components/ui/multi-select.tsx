@@ -2,7 +2,7 @@ import React from "react";
 
 import { CheckIcon, ChevronDown, X } from "lucide-react";
 import { CommandLoading } from "cmdk";
-import { cn } from "@/lib/utils";
+import { cn } from "../../../lib/utils";
 import { Badge } from "./badge";
 import {
   Command,

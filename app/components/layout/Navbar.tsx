@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-import { Button } from "@/app/components/ui/button";
+import { Button } from "../../components/ui/button";
 import twitterIcon from "../../../public/twitter.svg";
 import intagramIcon from "../../../public/intagram.svg";
 import youtubeIcon from "../../../public/youtube.svg";

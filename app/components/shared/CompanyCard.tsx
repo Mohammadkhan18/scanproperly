@@ -3,10 +3,9 @@ import { FaStar } from "react-icons/fa";
 import { IoCopyOutline } from "react-icons/io5";
 import Image from "next/image";
 
-import image from "@/public/homeImages/doublebull.svg";
-import { Button } from "@/app/components/ui/button";
+import image from ".././../../public/homeImages/doublebull.svg";
+import { Button } from "../../components/ui/button";
 import Review from "./Review";
-import { CommandEmpty } from "cmdk";
 
 const CompanyCard = ({ companyData }: { companyData: any }) => {
   return (

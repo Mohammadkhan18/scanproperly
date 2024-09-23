@@ -6,7 +6,7 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/app/components/ui/dropdown-menu";
+} from "../../../components/ui/dropdown-menu";
 import {
   Table,
   TableBody,
@@ -15,13 +15,13 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/app/components/ui/table";
+} from "../../../components/ui/table";
 import Image from "next/image";
 import React, { ReactNode } from "react";
 import { useDeleteBlog, useFetchBlog } from "../../api/api-queries";
 import { useRouter } from "next/navigation";
 import { MdOutlineDelete, MdOutlineModeEdit } from "react-icons/md";
-import { Button } from "@/app/components/ui/button";
+import { Button } from "../../../components/ui/button";
 import { BsThreeDots } from "react-icons/bs";
 import { FaPlus } from "react-icons/fa";
 

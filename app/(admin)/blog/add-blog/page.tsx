@@ -2,7 +2,7 @@
 
 import React from "react";
 import AddBlogsFrom from "./AddBlogsFrom";
-import { Button } from "@/app/components/ui/button";
+import { Button } from "../../../components/ui/button";
 import { useRouter } from "next/navigation";
 import { BsArrowLeft } from "react-icons/bs";
 

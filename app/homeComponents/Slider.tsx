@@ -6,13 +6,11 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/app/components/ui/carousel";
-import image1 from "@/public/homeImages/slidrerImages/image 149.svg";
-import image2 from "@/public/homeImages/slidrerImages/image 150.svg";
-import image3 from "@/public/homeImages/slidrerImages/image 151.svg";
-import image4 from "@/public/homeImages/slidrerImages/image 152.svg";
+} from "../components/ui/carousel";
+import image1 from "../../public/homeImages/slidrerImages/image 149.svg";
+import image2 from "../../public/homeImages/slidrerImages/image 150.svg";
+import image3 from "../../public/homeImages/slidrerImages/image 151.svg";
+import image4 from "../../public/homeImages/slidrerImages/image 152.svg";
 import Image from "next/image";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Autoplay from "embla-carousel-autoplay";

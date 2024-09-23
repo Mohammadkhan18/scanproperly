@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import UpdateBlogsFrom from "./UpdateBlog";
 
 import Loader from "@/app/components/shared/Loader";
-import { Button } from "@/app/components/ui/button";
+import { Button } from "../../../components/ui/button";
 import { BsArrowLeft } from "react-icons/bs";
 import { useFetchingSingleBlog } from "../../api/api-queries";
 import { useRouter } from "next/navigation";

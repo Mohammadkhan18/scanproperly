@@ -8,9 +8,9 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/app/components/ui/table";
+} from "../../../components/ui/table";
 import { useDeleteCompany, useFetchCompany } from "../../api/api-queries";
-import { Button } from "@/app/components/ui/button";
+import { Button } from "../../../components/ui/button";
 import { BsThreeDots } from "react-icons/bs";
 import { MdOutlineDelete, MdOutlineModeEdit } from "react-icons/md";
 import {
@@ -19,7 +19,7 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/app/components/ui/dropdown-menu";
+} from "../../../components/ui/dropdown-menu";
 import { ReactNode } from "react";
 import { FaPlus } from "react-icons/fa";
 import { useRouter } from "next/navigation";

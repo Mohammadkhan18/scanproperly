@@ -7,10 +7,10 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/app/components/ui/accordion";
-import CompanyCard from "@/app/components/shared/CompanyCard";
-import SearchInput from "@/app/components/shared/SearchInput";
-import { Button } from "@/app/components/ui/button";
+} from "../components/ui/accordion";
+import CompanyCard from "../components/shared/CompanyCard";
+import SearchInput from "../components/shared/SearchInput";
+import { Button } from "../components/ui/button";
 import { IoOptionsOutline } from "react-icons/io5";
 import { useFetchCompany } from "../(admin)/api/api-queries";
 import Loader from "../components/shared/Loader";
